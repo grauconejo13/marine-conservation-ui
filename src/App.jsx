@@ -1,6 +1,10 @@
-import { marineLife, threats, responses } from './data/marineLife.js'
+import { useState } from 'react'
+import { marineLife, threats, responses, demoPressureData } from './data/marineLife.js'
+import MarineIllustration from './components/MarineIllustration.jsx'
 
 function App() {
+  const [selectedSpecies, setSelectedSpecies] = useState(marineLife[0])
+
   return (
     <div className="app-shell">
       <header className="site-header">
@@ -64,14 +68,20 @@ function App() {
               <p className="eyebrow">Marine life</p>
               <h2>Different species. Shared ocean.</h2>
             </div>
-            <p>Each species can reveal a different part of the ecosystem story.</p>
+            <p>Select a species to explore how its conservation story connects to the wider ecosystem.</p>
           </div>
 
           <div className="species-grid">
-            {marineLife.map((animal, index) => (
-              <article className="species-card" key={animal.id}>
-                <div className="species-visual" aria-hidden="true">
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+            {marineLife.map((animal) => (
+              <button
+                className={`species-card ${selectedSpecies.id === animal.id ? 'selected' : ''}`}
+                key={animal.id}
+                type="button"
+                onClick={() => setSelectedSpecies(animal)}
+                aria-pressed={selectedSpecies.id === animal.id}
+              >
+                <div className="species-visual">
+                  <MarineIllustration id={animal.id} name={animal.name} />
                 </div>
                 <div className="card-body">
                   <p className="meta">{animal.ecosystem}</p>
@@ -80,9 +90,25 @@ function App() {
                   <p>{animal.summary}</p>
                   <div className="pressure"><span>Pressure</span>{animal.pressure}</div>
                 </div>
-              </article>
+              </button>
             ))}
           </div>
+
+          <article className="species-detail" aria-live="polite">
+            <div className="detail-art">
+              <MarineIllustration id={selectedSpecies.id} name={selectedSpecies.name} />
+            </div>
+            <div>
+              <p className="eyebrow">Selected species</p>
+              <h2>{selectedSpecies.name}</h2>
+              <p className="scientific detail-scientific">{selectedSpecies.scientificName}</p>
+              <p className="detail-story">{selectedSpecies.story}</p>
+              <h3>Conservation priorities</h3>
+              <ul>
+                {selectedSpecies.priorities.map((priority) => <li key={priority}>{priority}</li>)}
+              </ul>
+            </div>
+          </article>
         </section>
 
         <section className="dark-section section-pad" id="threats">
@@ -101,6 +127,25 @@ function App() {
                 <p>{item.text}</p>
               </article>
             ))}
+          </div>
+
+          <div className="viz-panel" aria-labelledby="pressure-viz-title">
+            <div className="viz-copy">
+              <p className="eyebrow">Interface prototype</p>
+              <h3 id="pressure-viz-title">How a conservation dashboard could compare pressures</h3>
+              <p>
+                These values are intentionally illustrative—not scientific measurements. The component demonstrates
+                how a future platform could present sourced indicators without implying unsupported precision.
+              </p>
+            </div>
+            <div className="bar-chart" role="img" aria-label="Illustrative bar chart of four marine conservation pressures">
+              {demoPressureData.map((item) => (
+                <div className="bar-row" key={item.label}>
+                  <div className="bar-label"><span>{item.label}</span><strong>{item.value}</strong></div>
+                  <div className="bar-track"><span style={{ width: `${item.value}%` }} /></div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
