@@ -6,6 +6,8 @@ export const marineLife = [
     ecosystem: 'Temperate coasts',
     summary: 'A small coastal penguin whose survival depends on healthy nearshore food webs and safe nesting habitat.',
     pressure: 'Food availability, habitat disturbance, predators',
+    story: 'Little penguins connect life on land with life at sea. Their daily movement between nesting areas and coastal feeding grounds makes them a useful lens for understanding how prey, shoreline habitat, predators, roads, lighting, and human disturbance can overlap.',
+    priorities: ['Protect nesting and shoreline access', 'Track prey and foraging conditions', 'Reduce disturbance and predator pressure'],
   },
   {
     id: 'green-sea-turtle',
@@ -14,6 +16,8 @@ export const marineLife = [
     ecosystem: 'Tropical and subtropical seas',
     summary: 'A long-lived marine reptile connecting seagrass beds, reefs, and nesting beaches across huge distances.',
     pressure: 'Bycatch, habitat loss, pollution',
+    story: 'Green sea turtles depend on several habitats over a lifetime. Protecting them means thinking beyond a single beach or reef and considering migration routes, coastal development, fishing practices, water quality, and healthy seagrass systems.',
+    priorities: ['Protect nesting beaches', 'Reduce fisheries bycatch', 'Restore feeding habitat'],
   },
   {
     id: 'manta-ray',
@@ -22,6 +26,8 @@ export const marineLife = [
     ecosystem: 'Open ocean and reefs',
     summary: 'A wide-ranging filter feeder that depends on productive waters and low-impact fisheries.',
     pressure: 'Fishing pressure, entanglement, changing food webs',
+    story: 'Manta rays move through large ocean spaces in search of productive feeding areas. Their conservation can involve fisheries management, movement research, tourism standards, and better understanding of how plankton-rich habitats shift over time.',
+    priorities: ['Reduce targeted and incidental catch', 'Protect aggregation sites', 'Monitor movement and feeding habitat'],
   },
   {
     id: 'humpback-whale',
@@ -30,6 +36,8 @@ export const marineLife = [
     ecosystem: 'Global ocean migrations',
     summary: 'A migratory whale whose recovery shows how protection, monitoring, and international cooperation can work.',
     pressure: 'Ship strikes, entanglement, underwater noise',
+    story: 'Humpback whales cross political and ecological boundaries. Protecting them can require coordinated migration-route monitoring, safer shipping practices, fishing-gear changes, acoustic research, and international conservation agreements.',
+    priorities: ['Reduce ship-strike risk', 'Prevent gear entanglement', 'Protect migration and feeding areas'],
   },
 ]
 
@@ -45,4 +53,11 @@ export const responses = [
   { title: 'Smarter monitoring', text: 'Use field surveys, acoustic tools, cameras, satellites, sensors, and responsible data systems to understand change.' },
   { title: 'Safer fisheries', text: 'Reduce bycatch, improve gear, protect sensitive areas, and align fishing effort with ecosystem conditions.' },
   { title: 'Community stewardship', text: 'Support local groups, Indigenous stewardship, researchers, rescuers, volunteers, and coastal communities.' },
+]
+
+export const demoPressureData = [
+  { label: 'Food-web change', value: 84 },
+  { label: 'Habitat pressure', value: 72 },
+  { label: 'Fishing interaction', value: 63 },
+  { label: 'Pollution exposure', value: 49 },
 ]
