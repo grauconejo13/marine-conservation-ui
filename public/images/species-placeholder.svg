@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Marine image placeholder</title>
+  <desc id="desc">Abstract ocean gradient placeholder used until a species image is added.</desc>
+  <defs>
+    <linearGradient id="water" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#103f48"/>
+      <stop offset="55%" stop-color="#0f7780"/>
+      <stop offset="100%" stop-color="#8bcfc9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#water)"/>
+  <circle cx="940" cy="180" r="180" fill="#d8f3f0" opacity=".18"/>
+  <path d="M0 570 C210 500 370 650 590 575 C805 500 940 630 1200 540 L1200 800 L0 800 Z" fill="#d8f3f0" opacity=".12"/>
+  <path d="M0 640 C220 570 420 720 650 640 C880 560 1010 680 1200 620" fill="none" stroke="#eef9f7" stroke-width="18" opacity=".18"/>
+</svg>
