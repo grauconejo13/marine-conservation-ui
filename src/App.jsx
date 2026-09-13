@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { marineLife, threats, responses, demoPressureData } from './data/marineLife.js'
-import MarineIllustration from './components/MarineIllustration.jsx'
+
+const fallbackImage = '/images/species-placeholder.svg'
 
 function App() {
   const [selectedSpecies, setSelectedSpecies] = useState(marineLife[0])
@@ -81,7 +82,11 @@ function App() {
                 aria-pressed={selectedSpecies.id === animal.id}
               >
                 <div className="species-visual">
-                  <MarineIllustration id={animal.id} name={animal.name} />
+                  <img
+                    className="species-image"
+                    src={animal.image || fallbackImage}
+                    alt={animal.image ? animal.imageAlt : ''}
+                  />
                 </div>
                 <div className="card-body">
                   <p className="meta">{animal.ecosystem}</p>
@@ -96,7 +101,11 @@ function App() {
 
           <article className="species-detail" aria-live="polite">
             <div className="detail-art">
-              <MarineIllustration id={selectedSpecies.id} name={selectedSpecies.name} />
+              <img
+                className="detail-image"
+                src={selectedSpecies.image || fallbackImage}
+                alt={selectedSpecies.image ? selectedSpecies.imageAlt : ''}
+              />
             </div>
             <div>
               <p className="eyebrow">Selected species</p>
