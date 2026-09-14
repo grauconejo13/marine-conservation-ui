@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #102a32;
   background: #eef5f4;
   font-synthesis: none;
@@ -30,16 +32,16 @@ button { font: inherit; color: inherit; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #0f6a72; color: white; }
 nav { display: flex; flex-wrap: wrap; gap: 18px; }
-nav a { text-decoration: none; font-size: .92rem; color: #35535a; }
+nav a { text-decoration: none; font-size: .92rem; color: #35535a; font-weight: 600; }
 nav a:hover, nav a:focus-visible { color: #0f6a72; }
 
 .section-pad { padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 80px); }
 .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: clamp(32px, 6vw, 80px); align-items: center; min-height: 78vh; }
 .eyebrow { margin: 0 0 16px; text-transform: uppercase; letter-spacing: .18em; font-size: .76rem; font-weight: 800; color: #0f6a72; }
 h1, h2, h3, p { margin-top: 0; }
-h1 { max-width: 920px; font-size: clamp(3rem, 7vw, 7rem); line-height: .94; letter-spacing: -.06em; margin-bottom: 28px; }
-h2 { font-size: clamp(2rem, 4vw, 4.2rem); line-height: 1; letter-spacing: -.045em; }
-h3 { font-size: 1.35rem; margin-bottom: 10px; }
+h1 { max-width: 920px; font-size: clamp(3rem, 7vw, 7rem); line-height: .94; letter-spacing: -.06em; margin-bottom: 28px; font-weight: 800; }
+h2 { font-size: clamp(2rem, 4vw, 4.2rem); line-height: 1; letter-spacing: -.045em; font-weight: 800; }
+h3 { font-size: 1.35rem; margin-bottom: 10px; font-weight: 750; }
 p { line-height: 1.7; color: #4c686f; }
 .lede { max-width: 760px; font-size: clamp(1.08rem, 2vw, 1.35rem); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
@@ -153,12 +155,45 @@ p { line-height: 1.7; color: #4c686f; }
 .cta h2, .cta p { max-width: 900px; }
 .cta p { font-size: 1.05rem; }
 
+.resources-page { min-height: 70vh; }
+.resources-hero { background: linear-gradient(145deg, #0b3540, #0f6970); color: #fff; }
+.resources-hero .eyebrow { color: #9fe0da; }
+.resources-hero h1 { max-width: 980px; }
+.resources-hero p { color: #d0e4e1; }
+.resources-section { background: #f8fbfa; }
+.resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.resource-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: 28px;
+  border: 1px solid rgba(16,42,50,.1);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(16,42,50,.06);
+}
+.resource-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.resource-meta span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #edf6f4;
+  color: #0f6a72;
+  font-size: .72rem;
+  font-weight: 700;
+}
+.resource-card h3 { font-size: clamp(1.35rem, 2vw, 1.8rem); }
+.resource-card p { flex: 1; }
+.resource-card a { margin-top: 18px; color: #0f6a72; font-weight: 800; text-decoration: none; }
+.resource-card a:hover, .resource-card a:focus-visible { text-decoration: underline; }
+.resource-note { background: #dfeeea; }
+.resource-note h2, .resource-note p { max-width: 920px; }
+
 footer { display: flex; justify-content: space-between; gap: 16px; padding: 28px clamp(20px, 5vw, 80px); background: #09262c; color: #b7ceca; font-size: .86rem; }
 
 @media (max-width: 980px) {
   .hero, .intro-grid, .species-detail, .viz-panel { grid-template-columns: 1fr; }
   .hero { min-height: auto; }
-  .species-grid, .threat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .species-grid, .threat-grid, .resource-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-heading { align-items: start; flex-direction: column; }
 }
 
@@ -166,7 +201,7 @@ footer { display: flex; justify-content: space-between; gap: 16px; padding: 28px
   .site-header { align-items: flex-start; flex-direction: column; }
   nav { gap: 12px; }
   h1 { font-size: clamp(2.7rem, 15vw, 4.4rem); }
-  .species-grid, .threat-grid { grid-template-columns: 1fr; }
+  .species-grid, .threat-grid, .resource-grid { grid-template-columns: 1fr; }
   .response-list article { grid-template-columns: 56px 1fr; }
   .signal-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; }
